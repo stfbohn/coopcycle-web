@@ -30,6 +30,7 @@ function TestUtils(config) {
   };
 
   this.redis = require('redis').createClient({
+    prefix: config.snc_redis.clients.default.options.prefix,
     url: config.snc_redis.clients.default.dsn
   });
 

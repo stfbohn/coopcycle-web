@@ -33,6 +33,7 @@ try {
 }
 
 var redisPubSub = require('redis').createClient({
+  prefix: config.snc_redis.clients.default.options.prefix,
   url: config.snc_redis.clients.default.dsn
 });
 
