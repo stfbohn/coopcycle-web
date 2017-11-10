@@ -1,5 +1,4 @@
 var app = require('http').createServer(handler);
-var url = require('url') ;
 var io = require('socket.io')(app, {path: '/tracking/socket.io'});
 var fs = require('fs');
 var path = require('path');
