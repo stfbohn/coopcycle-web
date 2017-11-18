@@ -19,13 +19,17 @@ How to run a local instance
 
 ### Prerequisites
 
-* Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install). 
+* Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install).
 
     - On OSX : use [Docker for Mac](https://www.docker.com/docker-mac) which will provide you both `docker` and `docker-compose`. It doesn't rely on Virtualbox as Docker used to.
-    
-    - On Windows : use [Docker for Windows](https://www.docker.com/docker-windows) which will provide you both `docker` and `docker-compose`. It doesn't rely on Virtualbox as Docker used to.
-    
-    - On Linux : follow [the instructions for your distribution](https://docs.docker.com/engine/installation/). `docker-compose` binary is to be installed independently. You can use Coopcycle without root privileges, to do so run `sudo usermod -aG docker your-user` (will add you to the `docker` group). 
+
+    - On Windows : use [Docker for Windows](https://www.docker.com/docker-windows) which will provide you both `docker` and `docker-compose`. It doesn't rely on Virtualbox as Docker used to.To run docker, you need Windows Pro or Windows Enterprise, it's not running on Windows Home. Once installed, you need to share the drive where your code is (https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
+    You need to download wget and openssl.
+    http://gnuwin32.sourceforge.net/packages/wget.htm
+    http://gnuwin32.sourceforge.net/packages/openssl.htm
+    The make script suppose that both are found under "C:\Program Files (x86)\GnuWin32\bin\". If there are at a different place, change the windows_make.cmd script accordingly.
+
+    - On Linux : follow [the instructions for your distribution](https://docs.docker.com/engine/installation/). `docker-compose` binary is to be installed independently. You can use Coopcycle without root privileges, to do so run `sudo usermod -aG docker your-user` (will add you to the `docker` group).
 
 * Get [a Google Map API Key](https://developers.google.com/maps/documentation/javascript/get-api-key#key) and copy it. You will be asked for it when running `make install`.
 
@@ -35,7 +39,7 @@ How to run a local instance
 ```sh
 make install
 ```
-
+    -On Windows: run windows_make.cmd from a command prompt (CMD) with administrator rights.
 
 ### Run the application
 
@@ -84,7 +88,7 @@ When pulling change from the remote, the database models may have change. To tak
 ```
 make migrations-migrate
 ```
- 
+
 
 License
 -------

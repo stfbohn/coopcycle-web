@@ -5,7 +5,6 @@ if not exist var\jwt mkdir var\jwt
 ECHO Calculating cycling routes for Paris..
 if not exist var\osrm mkdir var\osrm
 "C:\Program Files (x86)\GnuWin32\bin\wget" --no-check-certificate https://s3.amazonaws.com/mapzen.odes/ex_i653FMk2VwCUGetCYpH2hR4hpNLKV.osm.pbf -O var\osrm\data.osm.pbf
-
 docker-compose run osrm osrm-extract -p /opt/bicycle.lua /data/data.osm.pbf
 docker-compose run osrm osrm-contract /data/data.osrm
 ECHO Creating database..
